@@ -141,9 +141,8 @@ def add_product_ajax(request):
 
     return HttpResponseNotFound()
 
-@login_required(login_url='/login')
-def get_json_all(request):
-    data = Product.objects.filter(user=request.user)
+def get_json_flutter(request):
+    data = Product.objects.all()
     return HttpResponse(serializers.serialize('json', data))
 
 @csrf_exempt
